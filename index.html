@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بازی</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body
+    class="dark:bg-gray-700 min-h-screen bg-sky-100 text-slate-800 flex items-center justify-center flex-col gap-8 p-4"
+  >
+    <header>
+      <h1 id="greeting" class="dark:text-white"></h1>
+    </header>
+    <main
+      class="w-full max-w-md bg-white dark:bg-gray-200 rounded-3xl shadow-lg p-6 sm:p-8"
+    >
+      <h1 class="text-3xl font-bold text-center">سنگ کاغذ قیچی</h1>
+      <p class="text-center text-slate-500 mt-1">از 0 تا 5</p>
+
+      <!-- Scoreboard -->
+      <section class="grid grid-cols-2 gap-4 mt-6 text-center">
+        <div class="rounded-2xl bg-emerald-50 py-3">
+          <p class="text-sm text-slate-500">تو</p>
+          <p id="player-score" class="text-4xl font-bold text-emerald-600">0</p>
+        </div>
+        <div class="rounded-2xl bg-rose-50 py-3">
+          <p class="text-sm text-slate-500">حریف</p>
+          <p id="computer-score" class="text-4xl font-bold text-rose-600">0</p>
+        </div>
+      </section>
+
+      <!-- Arena: shows both picks -->
+      <section
+        class="flex items-center justify-around mt-6 h-28 rounded-2xl bg-slate-50"
+      >
+        <span id="player-pick" class="text-6xl" aria-label="Your pick">❔</span>
+        <span class="text-slate-400 font-semibold">vs</span>
+        <span id="computer-pick" class="text-6xl" aria-label="Computer pick"
+          >❔</span
+        >
+      </section>
+
+      <!-- Result message -->
+      <p
+        id="result"
+        class="text-center text-lg font-semibold mt-4 min-h-[1.75rem]"
+        aria-live="polite"
+      >
+        حرکت رو انتخاب کن
+      </p>
+
+      <!-- Choice buttons (data-choice is what your JS will read) -->
+      <section class="grid grid-cols-3 gap-3 mt-4">
+        <button
+          data-choice="rock"
+          class="choice-btn flex flex-col items-center gap-1 rounded-2xl bg-slate-100 hover:bg-sky-200 active:scale-95 transition py-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400 cursor-pointer"
+        >
+          <span class="text-4xl">✊</span>
+          <span class="text-sm font-medium">سنگ</span>
+        </button>
+        <button
+          data-choice="paper"
+          class="choice-btn flex flex-col items-center gap-1 rounded-2xl bg-slate-100 hover:bg-sky-200 active:scale-95 transition py-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400 cursor-pointer"
+        >
+          <span class="text-4xl">✋</span>
+          <span class="text-sm font-medium">کاغذ</span>
+        </button>
+        <button
+          data-choice="scissors"
+          class="choice-btn flex flex-col items-center gap-1 rounded-2xl bg-slate-100 hover:bg-sky-200 active:scale-95 transition py-4 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400 cursor-pointer"
+        >
+          <span class="text-4xl">✌️</span>
+          <span class="text-sm font-medium">قیچی</span>
+        </button>
+      </section>
+
+      <button
+        id="reset-btn"
+        class="w-full mt-6 rounded-xl border border-slate-300 py-2 text-slate-600 hover:bg-slate-100 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400 cursor-pointer hidden"
+      >
+        از اول
+      </button>
+    </main>
+
+    <script src="src/main.js" type="text/javascript"></script>
+  </body>
+</html>
